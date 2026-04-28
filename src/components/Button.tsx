@@ -1,30 +1,23 @@
-import type { IconType } from 'react-icons';
-import { cn } from '../utils';
 import type { ClassValue } from 'clsx';
 
 type ButtonProps = {
     label?: string;
-    action: () => void;
-    Icon?: IconType;
-    classes: ClassValue;
+    action?: () => void;
+    children: React.ReactNode;
+    classes?: ClassValue;
 } & React.ComponentProps<'button'>;
 
 export default function Button({
     label,
     action,
-    Icon,
-    classes,
+    children,
     ...rest
 }: ButtonProps) {
     return (
         <>
-            <button {...rest} className={cn('btn', classes)} onClick={action}>
+            <button {...rest} onClick={action}>
                 {label && <span>{label}</span>}
-                {Icon && (
-                    <span>
-                        <Icon />
-                    </span>
-                )}
+                {children && <span>{children}</span>}
             </button>
         </>
     );
