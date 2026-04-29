@@ -6,7 +6,7 @@ import ImageFallback from './ui/ImageFallback';
 
 type MovieCardProps = {
     movie: Movie;
-    onClick: () => void;
+    onClick?: () => void;
 };
 
 const MovieCard = ({ movie, onClick }: MovieCardProps) => {
@@ -14,7 +14,7 @@ const MovieCard = ({ movie, onClick }: MovieCardProps) => {
         <motion.div
             layoutId={movie.id}
             onClick={onClick}
-            className="relative hover:scale-105 hover:shadow-lg duration-150 ease-in-out transition-all flex flex-col rounded-2xl corner-scoop bg-card text-card-foreground shadow-lg overflow-hidden cursor-pointer"
+            className="relative flex flex-col rounded-2xl corner-scoop bg-card text-card-foreground shadow-lg overflow-hidden cursor-pointer"
         >
             <div className="relative h-92 w-full">
                 <ImageFallback
